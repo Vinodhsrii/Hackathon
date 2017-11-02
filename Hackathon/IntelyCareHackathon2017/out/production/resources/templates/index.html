@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelyCareHackathon</title>
+</head>
+<body>
+<h1>Shifts Management System - Intelycare</h1>
+<table>
+    <tr><p th:text="${list}"></p></tr>
+    <tr th:each="item, iter: ${list}">
+        <td class="shiftsTd"><a th:href="@{'/images/'+${#strings.arraySplit(item, '_')[1]}+'_'+${#strings.arraySplit(item, '_')[3]}+'.jpg'}" th:text="'Assignment ID: '+${#strings.arraySplit(item, '_')[0]}+' Nurse Name: '+${#strings.arraySplit(item, '_')[1]}"  th:class="${#strings.arraySplit(item, '_')[4]}"></a>
+        </td>
+
+    </tr>
+</table>
+
+<style>
+    a.Accepted{
+        background-color: red;
+    }
+    a.Process{
+        background-color: yellow;
+    }
+    a.Completed{
+        background-color: green;
+    }
+    td.shiftsTd{
+        width: 65%;
+        border: 1px solid black;
+    }
+    table{
+        width: 90%;
+    }
+</style>
+</body>
+</html>
